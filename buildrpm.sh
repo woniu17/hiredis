@@ -9,14 +9,14 @@ tar zcvf ${rpmdir}/${name}-${version}-${release}.tar.gz *
 
 cd ${rpmdir}
 
-# 通过tar包构建rpm包，似乎不需要指定sourcedir和specdir
+# 通过tar包构建rpm包，似乎不需要指定sourcedir
                 #--define="_sourcedir ${rpmdir}/source"  \
-                #--define="_specdir ${rpmdir}/spec"    \
 rpmbuild -tb --define="_topdir ${rpmdir}" \
-                --define="_builddir ${rpmdir}/build"   \
+                --define="_builddir ${rpmdir}"   \
+                --define="_specdir ${rpmdir}"    \
                 --define="_buildrootdir ${rpmdir}/buildroot"   \
-                --define="_rpmdir ${rpmdir}/rpm"       \
-                --define="_srcrpmdir ${rpmdir}/srcrpm" \
+                --define="_rpmdir ${rpmdir}"       \
+                --define="_srcrpmdir ${rpmdir}" \
                 --define="name ${name}" \
                 --define="version ${version}" \
                 --define="release ${release}" \

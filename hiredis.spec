@@ -27,11 +27,11 @@ Requires: %{name} = %{version}-%{release}
 Header files and libraries of %{name}
 
 %prep
-%setup -c %{name}-%{version}
+%setup -c
 
 %build
 # ./configure --prefix=/usr/local/%{name}
-make
+make -j2
 
 %install
 rm -rf %{buildroot}
